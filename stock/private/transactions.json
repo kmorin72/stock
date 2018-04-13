@@ -1,6 +1,7 @@
 {
-  "description" : "This tracks the buys and sales.  For a sale, put a negative quantity.",
+  "description" : "This tracks the buys and sales.",
   "transactions" : [
-    {"symbol" : "AAPL", "type" : "buy", "date" : "2013-03-12", "quantity" : 100, "price" : 381.64}
+    {"symbol" : "AAPL", "type" : "buy", "date" : "2013-03-12", "quantity" : 100, "price" : 381.64},
+    {"symbol" : "AAPL", "type" : "sell", "date" : "2018-04-13", "quantity" : 350, "price" : 174.78}
   ]
 }
