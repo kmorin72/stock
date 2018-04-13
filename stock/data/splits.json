@@ -1,0 +1,9 @@
+{
+  "splits": [
+    {"symbol": "ATD.B.TO", "date": "2014-04-23", "to": 3, "from": 1},
+    {"symbol": "CCL.B.TO", "date": "2017-06-06", "to": 5, "from": 1},
+    {"symbol": "NA.TO", "date": "2014-02-14", "to": 2, "from": 1},
+    {"symbol": "TRN", "date": "2014-06-20", "to": 2, "from": 1},
+    {"symbol": "AAPL", "date": "2014-06-09", "to": 7, "from": 1}
+  ]
+}
