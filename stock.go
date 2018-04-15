@@ -1,7 +1,7 @@
 package main
 
 import (
-	"./private"
+	"github.com/kmorin72/stock/private"
 	"fmt"
 	"encoding/json"
 	"time"
