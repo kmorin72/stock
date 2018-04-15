@@ -1,0 +1,6 @@
+A file containing this Json structure should be placed in:  ./conf/config.json relative from where you're calling the Go executable.
+
+{
+  "wtdToken": "<put your WorldTradingData Token Here.>",
+  "useLocalFiles": false
+}

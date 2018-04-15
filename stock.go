@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/kmorin72/stock/private"
+	"github.com/kmorin72/stock/utils"
 	"fmt"
 	"encoding/json"
 	"time"
@@ -12,9 +12,11 @@ import (
 	"sort"
 	"strings"
 	"path/filepath"
+	"log"
 )
 
-var useFilesFirst = true
+var useFilesFirst = true	
+var wtdToken = ""
 
 type WorldTradingDataCurrent struct {
 	SymbolsRequested int `json:"symbols_requested"`
@@ -176,7 +178,7 @@ func GetWorldTradingData(symbol string) (WorldTradingDataCurrent, WorldTradingDa
 	if currentJsonFileNotExists || !useFilesFirst {
 
 		// get it from the site and write the to file
-		url := "https://www.worldtradingdata.com/api/v1/stock?symbol=" + symbol + "&api_token=" + private.WORLD_TRADING_DATA_TOKEN + "&formatted=false"
+		url := "https://www.worldtradingdata.com/api/v1/stock?symbol=" + symbol + "&api_token=" + wtdToken + "&formatted=false"
 		response, err := http.Get(url)
 		if err != nil {
 			fmt.Println("stock: " + symbol + " - " + err.Error())
@@ -213,7 +215,7 @@ func GetWorldTradingData(symbol string) (WorldTradingDataCurrent, WorldTradingDa
 
 	if (historyJsonFileNotExists || !useFilesFirst) {
 
-		url := "https://www.worldtradingdata.com/api/v1/history?symbol=" + symbol + "&api_token=" + private.WORLD_TRADING_DATA_TOKEN + "&formatted=false"
+		url := "https://www.worldtradingdata.com/api/v1/history?symbol=" + symbol + "&api_token=" + wtdToken + "&formatted=false"
 		response, err := http.Get(url)
 		if err != nil {
 			fmt.Println("stock: " + symbol + " - " + err.Error())
@@ -594,7 +596,15 @@ func ScreenStocks() {
 
 
 func main() {
-
+	
+	dir, err := os.Getwd()
+	if err != nil {
+		log.Fatal(err)
+	}
+	var userInputs = utils.LoadConfiguration(dir + "/conf/config.json")
+	wtdToken = userInputs.WtdToken
+	useFilesFirst = userInputs.UseLocalFiles
+	
 	populateStocks()
 
 	fmt.Printf("\n\nCAD Dividends Last Month     %.2f\n", 	GlobalDividend1Month_CAD)
