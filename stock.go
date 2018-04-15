@@ -15,9 +15,8 @@ import (
 	"log"
 )
 
-//var useFilesFirst = true	
+var useFilesFirst = true	
 var wtdToken = ""
-var useFilesFirst = false
 
 type WorldTradingDataCurrent struct {
 	SymbolsRequested int `json:"symbols_requested"`
