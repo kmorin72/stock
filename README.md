@@ -5,7 +5,7 @@ Contributing:
   $ go get github.com/kmorin72/stock
 3) Add a remote for your fork (this is where you'll push to)
   $ git remote add myFork https://github.com/username/stock.git
-3) Do your work in ~/go/src/github.com/kmorin/72/stock on a branch:
+3) Do your work in ~/go/src/github.com/kmorin72/stock on a branch:
   $ cd ~/go/src/github.com/kmorin72/stock; git checkout -b you/yourFix
 4) When ready to contribute back to the project, push your work to your fork and open a Pull request:
   $ git push myFork
