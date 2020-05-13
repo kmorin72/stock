@@ -1,3 +1,5 @@
+We are going to make stock reporting great again!
+
 Contributing:
 
 1) Fork the repo using github into https://github.com/username/stock.git
